@@ -5,8 +5,9 @@
     <string name="on_the_way_to_perfection">On the way to perfection</string>
     <string name="days_left">days left</string>
     <string name="day_number">Day number</string>
-    <string name="exercise_counter">Exercise counter</string>
-    <string name="i_did_it">I did it!</string>
+    <string name="exercise_counter_default_text">13</string>
+    <string name="i_did_it">I did it</string>
     <string name="tv_days_counter_default_text">7</string>
     <string name="day">Day</string>
+    <string name="number_of_exercises">Exercises:</string>
 </resources>

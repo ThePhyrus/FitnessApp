@@ -16,7 +16,7 @@ class DaysAdapter : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()) {
         fun setData(day: DayModel) = with(binding) {
             val dayNumber = root.context.getString(R.string.day) + " ${adapterPosition + 1}"
             tvDayNumber.text = dayNumber
-            val exCounter = day.exercises.split(",").size.toString()
+            val exCounter = day.exercises.split(",").size.toString()//FIXME берётся весь размер массива(( Как убрать учёт разделителей (запятых)?
             tvExerciseCounter.text = exCounter
         }
     }

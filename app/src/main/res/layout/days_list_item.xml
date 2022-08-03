@@ -4,50 +4,65 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/cardView"
+        app:cardCornerRadius="@dimen/corner_radius"
+        android:layout_marginEnd="@dimen/margin_half"
         android:layout_marginStart="@dimen/margin_half"
         android:layout_marginTop="@dimen/margin_half"
-        android:layout_marginEnd="@dimen/margin_half"
-        app:cardCornerRadius="@dimen/corner_radius"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/margin_half"
-            android:orientation="vertical">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvDayNumber"
                 android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin"
                 android:layout_height="wrap_content"
                 android:text="@string/day_number"
-                android:textSize="@dimen/tv_day_number_text_size" />
+                android:textSize="@dimen/tv_day_number_text_size"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNumberOfExercises"
+                android:layout_marginTop="@dimen/margin"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_height="wrap_content"
+                android:text="@string/number_of_exercises"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tvExerciseCounter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exercise_counter" />
+                android:text="@string/exercise_counter_default_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvNumberOfExercises" />
 
-        </LinearLayout>
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:elevation="@dimen/checkbox_elevation"
+                android:focusable="auto"
+                android:text="@string/i_did_it"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_half"
-        android:elevation="@dimen/checkbox_elevation"
-        android:text="@string/i_did_it"
-        app:layout_constraintBottom_toBottomOf="@+id/cardView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/cardView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,4 +11,8 @@
 <!--    Mr.Color-->
     <color name="mr_text_color_primary">#FF03DAC5</color>
     <color name="mr_text_color_secondary">#FF018786</color>
+
+    <color name="mr_color_primary">#000000</color>
+    <color name="mr_color_secondary">#FF018786</color>
+
 </resources>
