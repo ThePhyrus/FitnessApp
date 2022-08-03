@@ -3,8 +3,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="on_the_way_to_perfection">On the way to perfection</string>
-    <string name="_21_days_left">21 days left</string>
+    <string name="days_left">days left</string>
     <string name="day_number">Day number</string>
     <string name="exercise_counter">Exercise counter</string>
     <string name="i_did_it">I did it!</string>
+    <string name="tv_days_counter_default_text">7</string>
 </resources>

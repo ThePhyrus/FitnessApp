@@ -25,7 +25,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -57,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
                 android:text="@string/on_the_way_to_perfection"
-                android:textColor="@color/mr_slogan_text_color"
+                android:textColor="@color/mr_text_color_primary"
                 android:textSize="@dimen/tv_slogan_text_size"
                 app:layout_constraintEnd_toEndOf="@+id/ivTopImage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -75,14 +76,29 @@
                 app:layout_constraintWidth_percent="0.5" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDaysLeftCounter"
+                android:id="@+id/tvDaysLeft"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/days_left"
                 android:layout_marginEnd="@dimen/margin"
-                android:text="@string/_21_days_left"
-                android:textColor="@color/mr_progress_text_color"
+                android:layout_marginBottom="@dimen/margin_mini"
+                android:textColor="@color/mr_text_color_secondary"
+                android:textSize="@dimen/tv_days_left_text_size"
+                android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/progressBar"
                 app:layout_constraintEnd_toEndOf="@+id/progressBar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDaysCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_days_counter_default_text"
+                android:layout_marginEnd="@dimen/margin_mini"
+                android:textColor="@color/mr_text_color_secondary"
+                android:textStyle="bold|italic"
+                android:textSize="@dimen/days_counter_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/progressBar"
+                app:layout_constraintEnd_toStartOf="@+id/tvDaysLeft" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
