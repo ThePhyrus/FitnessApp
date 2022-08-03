@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">FitnessApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="on_the_way_to_perfection">On the way to perfection</string>
+    <string name="_21_days_left">21 days left</string>
 </resources>

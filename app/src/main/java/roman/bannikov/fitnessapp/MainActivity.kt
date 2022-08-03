@@ -2,10 +2,14 @@ package roman.bannikov.fitnessapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import roman.bannikov.fitnessapp.fragments.DaysFragment
+import roman.bannikov.fitnessapp.utils.FragmentManager
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        FragmentManager.setFragment(DaysFragment.newInstance(), this)
     }
 }

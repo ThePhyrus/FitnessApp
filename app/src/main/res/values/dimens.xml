@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="corner_radius_mini">2dp</dimen>
+    <dimen name="corner_radius_half">4dp</dimen>
+    <dimen name="corner_radius">8dp</dimen>
+    <dimen name="corner_radius_double">16dp</dimen>
+
+
+
+    <dimen name="margin_mini">2dp</dimen>
+    <dimen name="margin_half">4dp</dimen>
+    <dimen name="margin">8dp</dimen>
+    <dimen name="margin_double">16dp</dimen>
+
+
+
+    <dimen name="tv_slogan_text_size">16sp</dimen>
+    <dimen name="card_view_height">150dp</dimen>
+</resources>
