@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="on_the_way_to_perfection">On the way to perfection</string>
     <string name="_21_days_left">21 days left</string>
+    <string name="day_number">Day number</string>
+    <string name="exercise_counter">Exercise counter</string>
+    <string name="i_did_it">I did it!</string>
 </resources>
