@@ -5,12 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import roman.bannikov.fitnessapp.MainViewModel
+import roman.bannikov.fitnessapp.adapters.ExerciseAdapter
 import roman.bannikov.fitnessapp.databinding.FragmentExerciseListBinding
 
 class ExerciseListFragment : Fragment() {
 
     private var _binding: FragmentExerciseListBinding? = null
     private val binding: FragmentExerciseListBinding get() = _binding!!
+    private lateinit var adapter:ExerciseAdapter
+    private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +28,17 @@ class ExerciseListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        init()
+        //FIXME отличие от l-15 6:08 ---------------------------------- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
+        viewModel.mutableListOfExercises.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
+    }
 
+    private fun init ()= with(binding){
+        adapter = ExerciseAdapter()
+        rcViewExercises.layoutManager = LinearLayoutManager(activity)
+        rcViewExercises.adapter = adapter
     }
 
 
