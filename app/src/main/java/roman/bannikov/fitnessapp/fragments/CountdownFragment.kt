@@ -29,6 +29,7 @@ class CountdownFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.pBarCountdown.max = COUNTDOWN_TIME.toInt()
+
         startCountdownTimer()
     }
 
