@@ -5,9 +5,13 @@ import androidx.fragment.app.Fragment
 import roman.bannikov.fitnessapp.R
 
 object FragmentManager { //todo сократить?
+
+    var currentFrag:Fragment? = null
+
     fun setFragment(newFragment:Fragment, conte: AppCompatActivity){
         val transaction = conte.supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentHolder, newFragment)
         transaction.commit()
+        currentFrag = newFragment
     }
 }

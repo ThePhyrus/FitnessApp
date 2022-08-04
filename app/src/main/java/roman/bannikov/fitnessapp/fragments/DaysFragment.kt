@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,8 +11,10 @@ import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.adapters.DayModel
 import roman.bannikov.fitnessapp.adapters.DaysAdapter
 import roman.bannikov.fitnessapp.databinding.FragmentDaysBinding
+import roman.bannikov.fitnessapp.listener.Listener
+import roman.bannikov.fitnessapp.utils.FragmentManager
 
-class DaysFragment : Fragment() {
+class DaysFragment : Fragment(), Listener {
 
     private var _binding: FragmentDaysBinding? = null
     private val binding: FragmentDaysBinding get() = _binding!!
@@ -32,7 +33,7 @@ class DaysFragment : Fragment() {
     }
 
     private fun initRcView() = with(binding) {
-        val adapter = DaysAdapter()
+        val adapter = DaysAdapter(this@DaysFragment)
         rcViewDays.layoutManager = LinearLayoutManager(activity as AppCompatActivity)
         rcViewDays.adapter = adapter
         adapter.submitList(fillDaysArray())
@@ -54,5 +55,12 @@ class DaysFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onClick(day: DayModel) {
+        FragmentManager.setFragment(
+            ExerciseListFragment.newInstance(),
+            activity as AppCompatActivity
+        )
     }
 }

@@ -8,16 +8,20 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.databinding.DaysListItemBinding
+import roman.bannikov.fitnessapp.listener.Listener
 
-class DaysAdapter : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()) {
+class DaysAdapter(var listener: Listener) : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()), Listener {
 
     class DayHolder(xmlDaysListItem: View) : RecyclerView.ViewHolder(xmlDaysListItem) {
         private val binding = DaysListItemBinding.bind(xmlDaysListItem)//FIXME не будет ли утечки?
-        fun setData(day: DayModel) = with(binding) {
+        fun setData(day: DayModel, listener: Listener) = with(binding) {
             val dayNumber = root.context.getString(R.string.day) + " ${adapterPosition + 1}"
             tvDayNumber.text = dayNumber
             val exCounter = day.exercises.split(",").size.toString()//FIXME берётся весь размер массива(( Как убрать учёт разделителей (запятых)?
             tvExerciseCounter.text = exCounter
+            itemView.setOnClickListener {
+                listener.onClick(day)
+            }
         }
     }
 
@@ -30,7 +34,7 @@ class DaysAdapter : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()) {
     //TODO сделай тут гадость, чтобы понять, как эта хрень работает
 
     override fun onBindViewHolder(holder: DayHolder, position: Int) {
-        holder.setData(getItem(position))
+        holder.setData(getItem(position), listener)
     }
 
     class Comparator : DiffUtil.ItemCallback<DayModel>() {
@@ -41,6 +45,10 @@ class DaysAdapter : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()) {
         override fun areContentsTheSame(oldItem: DayModel, newItem: DayModel): Boolean {
             return oldItem == newItem
         }
+
+    }
+
+    override fun onClick(day: DayModel) {
 
     }
 
