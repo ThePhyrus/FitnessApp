@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.adapters.DayModel
 import roman.bannikov.fitnessapp.adapters.DaysAdapter
+import roman.bannikov.fitnessapp.adapters.ExerciseModel
 import roman.bannikov.fitnessapp.databinding.FragmentDaysBinding
 import roman.bannikov.fitnessapp.listener.Listener
 import roman.bannikov.fitnessapp.utils.FragmentManager
@@ -45,6 +46,16 @@ class DaysFragment : Fragment(), Listener {
             tempArray.add(DayModel(setOfExercises, false))
         }
         return tempArray
+    }
+
+    private fun fillExerciseList(day: DayModel) {
+        val tempList = ArrayList<ExerciseModel>()
+        day.exercises.split(",").forEach { it ->
+            val exerciseLIst = resources.getStringArray(R.array.exercises)
+            val exercise = exerciseLIst[it.toInt()]
+            val exerciseArray = exercise.split("|")
+            tempList.add(ExerciseModel(exerciseArray[0], exerciseArray[1], exerciseArray[2]))
+        }
     }
 
     companion object {
