@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import androidx.appcompat.app.AppCompatActivity
+import roman.bannikov.fitnessapp.utils.SPLASH_INTERVAL
+import roman.bannikov.fitnessapp.utils.SPLASH_TIME
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
@@ -15,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        countDownTimer = object : CountDownTimer(SPLASH_TIME, COUNTDOWN_INTERVAL) {
+        countDownTimer = object : CountDownTimer(SPLASH_TIME, SPLASH_INTERVAL) {
             override fun onTick(millisUntilFinished: Long) {
                 //FIXME что с ним можно сделать?
             }

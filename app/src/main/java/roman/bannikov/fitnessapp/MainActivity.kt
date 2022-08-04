@@ -1,7 +1,7 @@
 package roman.bannikov.fitnessapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import roman.bannikov.fitnessapp.fragments.DaysFragment
 import roman.bannikov.fitnessapp.utils.FragmentManager
 
