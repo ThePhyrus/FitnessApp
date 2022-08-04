@@ -4,18 +4,20 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import roman.bannikov.fitnessapp.MainViewModel
 import roman.bannikov.fitnessapp.adapters.ExerciseAdapter
 import roman.bannikov.fitnessapp.databinding.FragmentExerciseListBinding
+import roman.bannikov.fitnessapp.utils.FragmentManager
 
 class ExerciseListFragment : Fragment() {
 
     private var _binding: FragmentExerciseListBinding? = null
     private val binding: FragmentExerciseListBinding get() = _binding!!
-    private lateinit var adapter:ExerciseAdapter
+    private lateinit var adapter: ExerciseAdapter
     private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -35,10 +37,16 @@ class ExerciseListFragment : Fragment() {
         }
     }
 
-    private fun init ()= with(binding){
+    private fun init() = with(binding) {
         adapter = ExerciseAdapter()
         rcViewExercises.layoutManager = LinearLayoutManager(activity)
         rcViewExercises.adapter = adapter
+        btnStart.setOnClickListener {
+            FragmentManager.setFragment(
+                CountdownFragment.newInstance(),
+                activity as AppCompatActivity
+            )
+        }
     }
 
 

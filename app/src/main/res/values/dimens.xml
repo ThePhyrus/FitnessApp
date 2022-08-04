@@ -21,4 +21,5 @@
     <dimen name="checkbox_elevation">16dp</dimen>
     <dimen name="tv_days_left_text_size">20sp</dimen>
     <dimen name="days_counter_text_size">26sp</dimen>
+    <dimen name="rc_view_exercises_margin_bottom">50dp</dimen>
 </resources>
