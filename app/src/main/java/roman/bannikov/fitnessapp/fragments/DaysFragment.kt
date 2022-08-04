@@ -53,7 +53,7 @@ class DaysFragment : Fragment(), Listener {
 
     private fun fillExerciseList(day: DayModel) {
         val tempList = ArrayList<ExerciseModel>()
-        day.exercises.split(",").forEach { it ->
+        day.exercises.split(",").forEach {
             val exerciseLIst = resources.getStringArray(R.array.exercises)
             val exercise = exerciseLIst[it.toInt()]
             val exerciseArray = exercise.split("|")
