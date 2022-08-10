@@ -20,6 +20,11 @@ import roman.bannikov.fitnessapp.utils.FragmentManager
 
 class DaysFragment : Fragment(), Listener {
 
+    companion object {
+        @JvmStatic
+        fun newInstance() = DaysFragment()
+    }
+
     private var _binding: FragmentDaysBinding? = null
     private val binding: FragmentDaysBinding get() = _binding!!
     private var actionBar: ActionBar? = null
@@ -69,9 +74,18 @@ class DaysFragment : Fragment(), Listener {
 
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = DaysFragment()
+    override fun onClick(day: DayModel) {
+        viewModel.currentDay = day.dayNumber
+        fillExerciseList(day)
+        FragmentManager.setFragment(
+            ExerciseListFragment.newInstance(),
+            activity as AppCompatActivity
+        )
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
     }
 
     override fun onDestroy() {
@@ -79,11 +93,5 @@ class DaysFragment : Fragment(), Listener {
         _binding = null
     }
 
-    override fun onClick(day: DayModel) {
-        fillExerciseList(day)
-        FragmentManager.setFragment(
-            ExerciseListFragment.newInstance(),
-            activity as AppCompatActivity
-        )
-    }
+
 }

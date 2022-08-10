@@ -127,6 +127,7 @@ class ExerciseFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
+        viewModel.savePreferences(viewModel.currentDay.toString(), exerciseCounter)
         exerciseTimer?.cancel()
     }
 

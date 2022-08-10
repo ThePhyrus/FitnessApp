@@ -13,14 +13,15 @@ import roman.bannikov.fitnessapp.listener.Listener
 class DaysAdapter(var listener: Listener) : ListAdapter<DayModel, DaysAdapter.DayHolder>(Comparator()), Listener {
 
     class DayHolder(xmlDaysListItem: View) : RecyclerView.ViewHolder(xmlDaysListItem) {
-        private val binding = DaysListItemBinding.bind(xmlDaysListItem)//FIXME не будет ли утечки?
+        private val binding = DaysListItemBinding.bind(xmlDaysListItem)
+
         fun setData(day: DayModel, listener: Listener) = with(binding) {
             val dayNumber = root.context.getString(R.string.day) + " ${adapterPosition + 1}"
             tvDayNumber.text = dayNumber
             val exCounter = day.exercises.split(",").size.toString()//FIXME берётся весь размер массива(( Как убрать учёт разделителей (запятых)?
             tvExerciseCounter.text = exCounter
             itemView.setOnClickListener {
-                listener.onClick(day)
+                listener.onClick(day.copy(dayNumber = adapterPosition + 1))
             }
         }
     }
