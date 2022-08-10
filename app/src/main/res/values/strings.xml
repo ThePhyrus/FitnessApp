@@ -14,4 +14,6 @@
     <string name="timer">Timer</string>
     <string name="next_exercise">Next exercise</string>
     <string name="done">Done</string>
+    <string name="you_are_the_best">You are the best!</string>
+    <string name="i_know_it">I know it</string>
 </resources>

@@ -22,4 +22,5 @@
     <dimen name="tv_days_left_text_size">20sp</dimen>
     <dimen name="days_counter_text_size">26sp</dimen>
     <dimen name="rc_view_exercises_margin_bottom">50dp</dimen>
+    <dimen name="tv_winner_text_size">30sp</dimen>
 </resources>

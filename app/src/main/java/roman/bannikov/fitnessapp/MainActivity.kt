@@ -6,6 +6,9 @@ import roman.bannikov.fitnessapp.fragments.DaysFragment
 import roman.bannikov.fitnessapp.utils.FragmentManager
 
 
+//todo Добавить "сек." или "раз" к отображению названия следующего упражнения
+//todo Настроить tvWinner (шрифт и всякое такое)
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -5,20 +5,15 @@ import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.recyclerview.widget.LinearLayoutManager
 import pl.droidsonroids.gif.GifDrawable
 import roman.bannikov.fitnessapp.MainViewModel
 import roman.bannikov.fitnessapp.R
-import roman.bannikov.fitnessapp.adapters.ExerciseAdapter
 import roman.bannikov.fitnessapp.adapters.ExerciseModel
 import roman.bannikov.fitnessapp.databinding.FragmentExerciseBinding
-import roman.bannikov.fitnessapp.databinding.FragmentExerciseListBinding
 import roman.bannikov.fitnessapp.utils.COUNTDOWN_INTERVAL
-import roman.bannikov.fitnessapp.utils.COUNTDOWN_TIME
 import roman.bannikov.fitnessapp.utils.FragmentManager
 import roman.bannikov.fitnessapp.utils.TimeUtils
 
@@ -63,7 +58,7 @@ class ExerciseFragment : Fragment() {
             showExercise(exercise)
             showNextExercise()
         } else {
-            Toast.makeText(activity, "Done", Toast.LENGTH_LONG).show()
+            FragmentManager.setFragment(WinnerFragment.newInstance(), activity as AppCompatActivity)
         }
     }
 
