@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">FitnessApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="on_the_way_to_perfection">On the way to perfection</string>
     <string name="days_left">days left</string>
@@ -14,4 +13,5 @@
     <string name="start_the_exercise_in">Start the exercise in:</string>
     <string name="timer">Timer</string>
     <string name="next_exercise">Next exercise</string>
+    <string name="done">Done</string>
 </resources>

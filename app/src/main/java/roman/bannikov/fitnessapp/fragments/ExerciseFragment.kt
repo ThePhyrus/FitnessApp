@@ -12,6 +12,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import pl.droidsonroids.gif.GifDrawable
 import roman.bannikov.fitnessapp.MainViewModel
+import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.adapters.ExerciseAdapter
 import roman.bannikov.fitnessapp.adapters.ExerciseModel
 import roman.bannikov.fitnessapp.databinding.FragmentExerciseBinding
@@ -60,8 +61,38 @@ class ExerciseFragment : Fragment() {
             val exercise = exerciseList?.get(exerciseCounter++) ?: return
             specifyExerciseType(exercise)
             showExercise(exercise)
+            showNextExercise()
         } else {
             Toast.makeText(activity, "Done", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun showNextExercise() = with(binding) {
+        if (exerciseCounter < exerciseList?.size!!) {
+            val exercise = exerciseList?.get(exerciseCounter) ?: return
+            ivNextExercise.setImageDrawable(
+                GifDrawable(
+                    root.context.assets,
+                    exercise.exerciseImage
+                )
+            )
+            tvNextExerciseName.text = exercise.exerciseName
+            specifyTimeType(exercise)
+        } else {
+            ivNextExercise.setImageDrawable(GifDrawable(root.context.assets, "relax_simpson.gif"))
+            tvNextExerciseName.text = getString(R.string.done)
+        }
+    }
+
+    private fun specifyTimeType(exercise: ExerciseModel) {
+        if (exercise.exerciseTime.startsWith("x")) {
+            (exercise.exerciseName + ": ${exercise.exerciseTime}").also {
+                binding.tvNextExerciseName.text = it
+            }
+        } else {
+            val name =
+                exercise.exerciseName + ": ${TimeUtils.getTime(exercise.exerciseTime.toLong() * 1000)}"
+            binding.tvNextExerciseName.text = name
         }
     }
 
