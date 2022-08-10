@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -21,6 +22,7 @@ class DaysFragment : Fragment(), Listener {
 
     private var _binding: FragmentDaysBinding? = null
     private val binding: FragmentDaysBinding get() = _binding!!
+    private var actionBar: ActionBar? = null
     private val viewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -33,6 +35,10 @@ class DaysFragment : Fragment(), Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        actionBar = (activity as AppCompatActivity).supportActionBar?.apply {
+            val title = getString(R.string.train_evry_day)
+            this.title = title
+        }
         initRcView()
     }
 

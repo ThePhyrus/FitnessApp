@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.databinding.FragmentCountdownBinding
 import roman.bannikov.fitnessapp.utils.COUNTDOWN_INTERVAL
 import roman.bannikov.fitnessapp.utils.COUNTDOWN_TIME
@@ -18,6 +20,7 @@ class CountdownFragment : Fragment() {
 
     private var _binding: FragmentCountdownBinding? = null
     private val binding: FragmentCountdownBinding get() = _binding!!
+    private var actionBar: ActionBar? = null
     private lateinit var countdownTimer: CountDownTimer
 
     override fun onCreateView(
@@ -30,6 +33,10 @@ class CountdownFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        actionBar = (activity as AppCompatActivity).supportActionBar?.apply {
+            val title = getString(R.string.get_ready)
+            this.title = title
+        }
         binding.pBarCountdown.max = COUNTDOWN_TIME.toInt()
         startCountdownTimer()
     }

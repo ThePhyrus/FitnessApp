@@ -16,4 +16,7 @@
     <string name="done">Done</string>
     <string name="you_are_the_best">You are the best!</string>
     <string name="i_know_it">I know it</string>
+    <string name="get_ready">Get ready!</string>
+    <string name="train_evry_day">Train every day</string>
+    <string name="list_of_exercises">List of exercises</string>
 </resources>

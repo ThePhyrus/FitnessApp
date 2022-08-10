@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import pl.droidsonroids.gif.GifDrawable
+import roman.bannikov.fitnessapp.R
 import roman.bannikov.fitnessapp.databinding.FragmentWinnerBinding
 import roman.bannikov.fitnessapp.utils.FragmentManager
 
@@ -17,6 +19,7 @@ class WinnerFragment : Fragment() {
         fun newInstance() = WinnerFragment()
     }
 
+    private var actionBar: ActionBar? = null
     private var _binding: FragmentWinnerBinding? = null
     private val binding: FragmentWinnerBinding get() = _binding!!
 
@@ -30,6 +33,10 @@ class WinnerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        actionBar = (activity as AppCompatActivity).supportActionBar?.apply {
+            val title = getString(R.string.done)
+            this.title = title
+        }
         binding.ivWinnerFragment.setImageDrawable(
             GifDrawable(
                 (activity as AppCompatActivity).assets,
