@@ -36,8 +36,6 @@ class ExerciseAdapter() :
         return ExerciseHolder(view)
     }
 
-//TODO сделай тут гадость, чтобы понять, как эта хрень работает
-
     override fun onBindViewHolder(holder: ExerciseHolder, position: Int) {
         holder.setData(getItem(position))
     }
@@ -52,5 +50,6 @@ class ExerciseAdapter() :
         }
 
     }
+
 
 }

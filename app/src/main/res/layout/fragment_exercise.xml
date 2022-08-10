@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/im_fitness_main_1000x1600">
@@ -86,7 +85,7 @@
         android:layout_marginBottom="@dimen/margin_half"
         android:backgroundTint="#1AFFFFFF"
         app:cardCornerRadius="@dimen/corner_radius"
-        app:layout_constraintBottom_toTopOf="@+id/btnNext"
+        app:layout_constraintBottom_toTopOf="@+id/btnNextExercise"
         app:layout_constraintEnd_toEndOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="@+id/cardView2"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
@@ -125,10 +124,10 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNext"
+        android:id="@+id/btnNextExercise"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="btn"
+        android:text="@string/next_exercise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="@+id/cardView2" />
