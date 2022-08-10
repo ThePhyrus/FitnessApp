@@ -26,6 +26,7 @@ class ExerciseAdapter() :
                     exercise.exerciseImage
                 )
             ) //FIXME при вложенности в папке assets так не работает (как прописать путь ко вложенной папке?)
+            checkBox.isChecked = exercise.isDone
         }
 
     }

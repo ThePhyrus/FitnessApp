@@ -18,6 +18,8 @@ import roman.bannikov.fitnessapp.utils.COUNTDOWN_INTERVAL
 import roman.bannikov.fitnessapp.utils.FragmentManager
 import roman.bannikov.fitnessapp.utils.TimeUtils
 
+private const val TAG: String = "@@@"
+
 class ExerciseFragment : Fragment() {
 
     companion object {
@@ -29,7 +31,7 @@ class ExerciseFragment : Fragment() {
     private val binding: FragmentExerciseBinding get() = _binding!!
     private var exerciseCounter: Int = 0
     private var exerciseTimer: CountDownTimer? = null
-    private var actionBar:ActionBar? = null
+    private var actionBar: ActionBar? = null
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private val viewModel: MainViewModel by activityViewModels()
 
@@ -44,6 +46,7 @@ class ExerciseFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         actionBar = (activity as AppCompatActivity).supportActionBar
+        exerciseCounter = viewModel.getFinishedExerciseCount()
         viewModel.mutableListOfExercises.observe(viewLifecycleOwner) {
             exerciseList = it
             nextExercise()
@@ -127,7 +130,7 @@ class ExerciseFragment : Fragment() {
 
     override fun onDetach() {
         super.onDetach()
-        viewModel.savePreferences(viewModel.currentDay.toString(), exerciseCounter)
+        viewModel.savePreferences(viewModel.currentDay.toString(), exerciseCounter - 1)
         exerciseTimer?.cancel()
     }
 

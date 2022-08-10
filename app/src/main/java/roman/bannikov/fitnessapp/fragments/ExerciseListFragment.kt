@@ -40,6 +40,9 @@ class ExerciseListFragment : Fragment() {
         init()
         //FIXME отличие от l-15 6:08 ---------------------------------- ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
         viewModel.mutableListOfExercises.observe(viewLifecycleOwner) {
+            for (i in 0 until viewModel.getFinishedExerciseCount()){
+                it[i] = it[i].copy(isDone = true)
+            }
             adapter.submitList(it)
         }
     }
