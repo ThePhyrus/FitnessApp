@@ -2,16 +2,16 @@
 <resources>
 
     <string-array name="exercises">
-        <item>Relax #0|90|relax_simpson.gif</item> <!--0-->
-        <item>Exercise #1|x13|exercise_1.gif</item> <!--1-->
-        <item>Exercise #2|x13|exercise_2.gif</item> <!--2-->
-        <item>Exercise #3|x13|exercise_3.gif</item> <!--3-->
-        <item>Exercise #4|x13|exercise_4.gif</item> <!--5-->
-        <item>Exercise #5|x13|exercise_5.gif</item> <!--6-->
-        <item>Exercise #6|x13|exercise_6.gif</item> <!--7-->
-        <item>Exercise #7|x13|exercise_7.gif</item> <!--8-->
-        <item>Exercise #8|x13|exercise_8.gif</item> <!--9-->
-        <item>Exercise #9|x13|exercise_9.gif</item> <!--4-->
+        <item>Relax #0|5|relax_simpson.gif</item> <!--0-->
+        <item>Exercise #1|x30|exercise_1.gif</item> <!--1-->
+        <item>Exercise #2|4|exercise_2.gif</item> <!--2-->
+        <item>Exercise #3|7|exercise_3.gif</item> <!--3-->
+        <item>Exercise #4|x30|exercise_4.gif</item> <!--5-->
+        <item>Exercise #5|2|exercise_5.gif</item> <!--6-->
+        <item>Exercise #6|x30|exercise_6.gif</item> <!--7-->
+        <item>Exercise #7|3|exercise_7.gif</item> <!--8-->
+        <item>Exercise #8|x30|exercise_8.gif</item> <!--9-->
+        <item>Exercise #9|8|exercise_9.gif</item> <!--4-->
     </string-array>
 
     <string-array name="day_sets_of_exercises">
