@@ -14,6 +14,7 @@ import roman.bannikov.fitnessapp.utils.FragmentManager
 //todo Найти кучу однообразных gif-картинок и подписать все упражнения
 //FIXME Берётся весь размер массива. Как убрать учёт разделителей (запятых)?
 
+
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()

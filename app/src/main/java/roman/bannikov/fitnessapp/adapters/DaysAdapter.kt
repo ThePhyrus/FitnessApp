@@ -20,6 +20,7 @@ class DaysAdapter(var listener: Listener) : ListAdapter<DayModel, DaysAdapter.Da
             tvDayNumber.text = dayNumber
             val exCounter = day.exercises.split(",").size.toString()//FIXME берётся весь размер массива(( Как убрать учёт разделителей (запятых)?
             tvExerciseCounter.text = exCounter
+            checkBox.isChecked = day.isDone
             itemView.setOnClickListener {
                 listener.onClick(day.copy(dayNumber = adapterPosition + 1))
             }
@@ -31,8 +32,6 @@ class DaysAdapter(var listener: Listener) : ListAdapter<DayModel, DaysAdapter.Da
             .inflate(R.layout.days_list_item, parent, false)
         return DayHolder(xmlView)
     }
-
-    //TODO сделай тут гадость, чтобы понять, как эта хрень работает
 
     override fun onBindViewHolder(holder: DayHolder, position: Int) {
         holder.setData(getItem(position), listener)

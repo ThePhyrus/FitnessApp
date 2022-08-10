@@ -40,6 +40,7 @@ class DaysFragment : Fragment(), Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.currentDay = 0
         actionBar = (activity as AppCompatActivity).supportActionBar?.apply {
             val title = getString(R.string.train_evry_day)
             this.title = title
@@ -57,7 +58,15 @@ class DaysFragment : Fragment(), Listener {
     private fun fillDaysArray(): ArrayList<DayModel> {
         val tempArray = ArrayList<DayModel>()
         resources.getStringArray(R.array.day_sets_of_exercises).forEach { setOfExercises ->
-            tempArray.add(DayModel(setOfExercises, 0, false))
+            viewModel.currentDay++
+            val exerciseCounter = setOfExercises.split(",").size
+            tempArray.add(
+                DayModel(
+                    setOfExercises,
+                    0,
+                    viewModel.getFinishedExerciseCount() == exerciseCounter
+                )
+            )
         }
         return tempArray
     }
