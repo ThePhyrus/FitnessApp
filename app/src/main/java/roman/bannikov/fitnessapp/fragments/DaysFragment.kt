@@ -1,11 +1,10 @@
 package roman.bannikov.fitnessapp.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -29,6 +28,12 @@ class DaysFragment : Fragment(), Listener {
     private val binding: FragmentDaysBinding get() = _binding!!
     private var actionBar: ActionBar? = null
     private val viewModel: MainViewModel by activityViewModels()
+    private lateinit var adapter: DaysAdapter
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,8 +53,20 @@ class DaysFragment : Fragment(), Listener {
         initRcView()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        return inflater.inflate(R.menu.main_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.miReset) {
+            viewModel.preferences?.edit()?.clear()?.apply()
+            adapter.submitList(fillDaysArray())
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     private fun initRcView() = with(binding) {
-        val adapter = DaysAdapter(this@DaysFragment)
+        adapter = DaysAdapter(this@DaysFragment)
         rcViewDays.layoutManager = LinearLayoutManager(activity as AppCompatActivity)
         rcViewDays.adapter = adapter
         adapter.submitList(fillDaysArray())
@@ -79,7 +96,6 @@ class DaysFragment : Fragment(), Listener {
         return tempArray
     }
 
-
     private fun updateTextViewDaysCounter(daysLeft: Int, daysQuantity: Int) = with(binding) {
         //FIXME если локализировать на Россию, логика будет сложнее (day/days и день/дня/дней)
         if (daysLeft == 1 || daysLeft == 21 || daysLeft == 31
@@ -95,7 +111,6 @@ class DaysFragment : Fragment(), Listener {
         }
 
     }
-
 
     private fun fillExerciseList(day: DayModel) {
         val tempList = ArrayList<ExerciseModel>()
