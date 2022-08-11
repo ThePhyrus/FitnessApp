@@ -21,4 +21,9 @@
     <string name="days_left">days left</string>
     <string name="day_left">day left</string>
     <string name="reset_all">Reset all</string>
+    <string name="alert">Alert!</string>
+    <string name="reset">Reset</string>
+    <string name="back">Back</string>
+    <string name="reset_all_days_message">Do you really want to reset all the progress you\'ve made? </string>
+    <string name="reset_day_message">Do you really want to reset this day progress? </string>
 </resources>

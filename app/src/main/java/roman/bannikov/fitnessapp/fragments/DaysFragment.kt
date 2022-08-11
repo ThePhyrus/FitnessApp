@@ -15,6 +15,7 @@ import roman.bannikov.fitnessapp.adapters.DaysAdapter
 import roman.bannikov.fitnessapp.adapters.ExerciseModel
 import roman.bannikov.fitnessapp.databinding.FragmentDaysBinding
 import roman.bannikov.fitnessapp.listener.Listener
+import roman.bannikov.fitnessapp.utils.DialogManager
 import roman.bannikov.fitnessapp.utils.FragmentManager
 
 class DaysFragment : Fragment(), Listener {
@@ -59,8 +60,15 @@ class DaysFragment : Fragment(), Listener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.miReset) {
-            viewModel.preferences?.edit()?.clear()?.apply()
-            adapter.submitList(fillDaysArray())
+
+            DialogManager.showDialog(activity as AppCompatActivity,
+                R.string.reset_all_days_message, object : DialogManager.Listener {
+                    override fun onClick() {
+                        viewModel.preferences?.edit()?.clear()?.apply()
+                        adapter.submitList(fillDaysArray())
+                    }
+
+                })
         }
         return super.onOptionsItemSelected(item)
     }
@@ -132,12 +140,27 @@ class DaysFragment : Fragment(), Listener {
     }
 
     override fun onClick(day: DayModel) {
-        viewModel.currentDay = day.dayNumber
-        fillExerciseList(day)
-        FragmentManager.setFragment(
-            ExerciseListFragment.newInstance(),
-            activity as AppCompatActivity
-        )
+        if (!day.isDone) {
+            viewModel.currentDay = day.dayNumber
+            fillExerciseList(day)
+            FragmentManager.setFragment(
+                ExerciseListFragment.newInstance(),
+                activity as AppCompatActivity
+            )
+        } else {
+            DialogManager.showDialog(activity as AppCompatActivity,
+                R.string.reset_day_message, object : DialogManager.Listener {
+                    override fun onClick() {
+                        viewModel.savePreferences(day.dayNumber.toString(), 0)
+                        fillExerciseList(day)
+                        FragmentManager.setFragment(
+                            ExerciseListFragment.newInstance(),
+                            activity as AppCompatActivity
+                        )
+                    }
+                }
+            )
+        }
     }
 
     override fun onDetach() {
