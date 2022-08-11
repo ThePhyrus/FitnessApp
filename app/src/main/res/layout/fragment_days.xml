@@ -89,7 +89,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/progressBar" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/tvDaysCounter"
+                android:id="@+id/tvDaysLeftCounter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/tv_days_counter_default_text"

@@ -19,4 +19,6 @@
     <string name="get_ready">Get ready!</string>
     <string name="train_evry_day">Train every day</string>
     <string name="list_of_exercises">List of exercises</string>
+    <string name="left">left</string>
+    <string name="days">days</string>
 </resources>

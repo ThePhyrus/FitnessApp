@@ -57,6 +57,7 @@ class DaysFragment : Fragment(), Listener {
 
     private fun fillDaysArray(): ArrayList<DayModel> {
         val tempArray = ArrayList<DayModel>()
+        var daysLDoneCounter = 0
         resources.getStringArray(R.array.day_sets_of_exercises).forEach { setOfExercises ->
             viewModel.currentDay++
             val exerciseCounter = setOfExercises.split(",").size
@@ -68,7 +69,21 @@ class DaysFragment : Fragment(), Listener {
                 )
             )
         }
+        binding.progressBar.max = tempArray.size
+        tempArray.forEach {
+            if (it.isDone) {
+                daysLDoneCounter++
+            }
+        }
+        updateTextViewDaysCounter(tempArray.size - daysLDoneCounter, tempArray.size)
         return tempArray
+    }
+
+    //todo concat strings
+    private fun updateTextViewDaysCounter(daysLeft: Int, days: Int) = with(binding) {
+        val dLeft = "$daysLeft " + getString(R.string.days) + " " + getString(R.string.left)
+        tvDaysLeft.text = dLeft
+        progressBar.progress = days - daysLeft
     }
 
     private fun fillExerciseList(day: DayModel) {
@@ -77,7 +92,14 @@ class DaysFragment : Fragment(), Listener {
             val exerciseLIst = resources.getStringArray(R.array.exercises)
             val exercise = exerciseLIst[it.toInt()]
             val exerciseArray = exercise.split("|")
-            tempList.add(ExerciseModel(exerciseArray[0], exerciseArray[1], exerciseArray[2], false))
+            tempList.add(
+                ExerciseModel(
+                    exerciseArray[0],
+                    exerciseArray[1],
+                    exerciseArray[2],
+                    false
+                )
+            )
         }
         viewModel.mutableListOfExercises.value = tempList
 
