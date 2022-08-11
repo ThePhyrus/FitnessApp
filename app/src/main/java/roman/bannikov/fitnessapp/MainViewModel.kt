@@ -9,6 +9,7 @@ class MainViewModel : ViewModel() {
     val mutableListOfExercises = MutableLiveData<ArrayList<ExerciseModel>>()
     var preferences: SharedPreferences? = null
     var currentDay: Int = 0
+    var isRussianLocale:Boolean = false
 
     fun savePreferences(key: String, value: Int) {
         preferences?.edit()!!.putInt(key, value)?.apply()

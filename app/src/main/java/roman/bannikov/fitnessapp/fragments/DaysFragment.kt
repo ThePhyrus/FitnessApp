@@ -42,7 +42,7 @@ class DaysFragment : Fragment(), Listener {
         super.onViewCreated(view, savedInstanceState)
         viewModel.currentDay = 0
         actionBar = (activity as AppCompatActivity).supportActionBar?.apply {
-            val title = getString(R.string.train_evry_day)
+            val title = getString(R.string.train_every_day)
             this.title = title
         }
         initRcView()
@@ -79,12 +79,23 @@ class DaysFragment : Fragment(), Listener {
         return tempArray
     }
 
-    //todo concat strings
-    private fun updateTextViewDaysCounter(daysLeft: Int, days: Int) = with(binding) {
-        val dLeft = "$daysLeft " + getString(R.string.days) + " " + getString(R.string.left)
-        tvDaysLeft.text = dLeft
-        progressBar.progress = days - daysLeft
+
+    private fun updateTextViewDaysCounter(daysLeft: Int, daysQuantity: Int) = with(binding) {
+        //FIXME если локализировать на Россию, логика будет сложнее (day/days и день/дня/дней)
+        if (daysLeft == 1 || daysLeft == 21 || daysLeft == 31
+            || daysLeft == 41 || daysLeft == 51 || daysLeft == 61
+        ) {
+            tvDaysLeftCounter.text = daysLeft.toString()
+            tvDaysLeft.text = getString(R.string.day_left)
+            progressBar.progress = daysQuantity - daysLeft
+        } else {
+            tvDaysLeftCounter.text = daysLeft.toString()
+            tvDaysLeft.text = getString(R.string.days_left)
+            progressBar.progress = daysQuantity - daysLeft
+        }
+
     }
+
 
     private fun fillExerciseList(day: DayModel) {
         val tempList = ArrayList<ExerciseModel>()
