@@ -10,6 +10,7 @@ object FragmentManager { //todo сократить?
 
     fun setFragment(newFragment:Fragment, conte: AppCompatActivity){
         val transaction = conte.supportFragmentManager.beginTransaction()
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.slide_out_right)
         transaction.replace(R.id.fragmentHolder, newFragment)
         transaction.commit()
         currentFrag = newFragment

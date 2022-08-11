@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/mr_bg_color"
     android:layout_height="match_parent"
     tools:context=".fragments.DaysFragment">
 
@@ -58,6 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/margin"
                 android:text="@string/on_the_way_to_perfection"
+                android:textStyle="italic"
                 android:textColor="@color/mr_text_color_primary"
                 android:textSize="@dimen/tv_slogan_text_size"
                 app:layout_constraintEnd_toEndOf="@+id/ivTopImage"

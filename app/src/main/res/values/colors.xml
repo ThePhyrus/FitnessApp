@@ -14,5 +14,6 @@
 
     <color name="mr_color_primary">#000000</color>
     <color name="mr_color_secondary">#FF018786</color>
+    <color name="mr_bg_color">#959595</color>
 
 </resources>
